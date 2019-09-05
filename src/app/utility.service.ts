@@ -8,6 +8,6 @@ export class UtilityService {
 
   constructor(private http: HttpClient) { }
   getLists(){
-    return this.http.get("https://bit.ly/2lDpSpO")
+    return this.http.get("https://salty-taiga-86575.herokuapp.com/lists")
   }
 }
