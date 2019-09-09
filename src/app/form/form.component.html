@@ -1,8 +1,28 @@
-<div>
-    <div>
-            <input class="form-control" type="text" id="newUrl" placeholder="Please enter URL EndPoint">
-            <button id="submit-form" (click)="onSubmitMessage()">Submit URL</button>
-    </div>
-    <div *ngFor="let list of lists">
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <form [formGroup]="urlForm" (ngSubmit)="onSubmit()">
+                <input class="form-control" type="text" formControlName="originalUrl" placeholder="Please enter URL EndPoint">
+                <input type="submit" value="Submit URL">
+            </form>
+        </div>
+        <div class="col-sm">
+            <table class = "table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Original Url</th>
+                        <th scope="col">Shorthen Url</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let list of lists">
+                        <th scope="row">{{list.id}}</th>
+                        <td>{{list.originalUrl}}</td>
+                        <td>{{list.shortenUrl}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

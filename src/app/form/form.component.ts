@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UtilityService } from '../utility.service';
-import { FormControl } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -8,9 +8,8 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-
   lists
-  newUrl = new FormControl()
+  urlForm = new FormControl()
 
   constructor(private utilityService: UtilityService) { }
 
@@ -20,6 +19,13 @@ export class FormComponent implements OnInit {
     })
   }
 
-  onSubmitMessage(){}
+  onSubmit(){
+    const formValues = this.urlForm.value
+    this.utilityService.storeUrl(
+      formValues.originalUrl
+    ).subscribe(response => {
+      console.log(response)
+    })
+  }
   
 }
