@@ -9,7 +9,9 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
   lists
-  urlForm = new FormControl()
+  urlForm = new FormGroup({
+    originalUrl: new FormControl()
+  })
 
   constructor(private utilityService: UtilityService) { }
 

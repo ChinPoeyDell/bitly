@@ -19,7 +19,7 @@
                     <tr *ngFor="let list of lists">
                         <th scope="row">{{list.id}}</th>
                         <td>{{list.originalUrl}}</td>
-                        <td>{{list.shortenUrl}}</td>
+                        <td><a href={{list.originalUrl}}>{{list.shortenUrl}}</a></td>
                     </tr>
                 </tbody>
             </table>
